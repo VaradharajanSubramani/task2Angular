@@ -1,1 +1,117 @@
-<p>branch-add works!</p>
+<div class="content" id="createPortlet">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <div class="page-header-title">
+                    <h4 class="pull-left page-title" *ngIf="(!updateFlag)"> Create New Branch</h4>
+                    <h4 class="pull-left page-title" *ngIf="(updateFlag)">Update Branch</h4>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-body d-flex justify-content-center">
+                    <div class="col-lg-9 col-xlg-9 col-md-9">
+
+
+                        <form [formGroup]="myForm" class="form-horizontal" >
+                           
+                           <div class="row">
+
+                            <div class="col-sm-4">
+                                <div class="form-group required">
+                                    <label for="example-email" class="control-label">Company Name</label>
+                                    <div class="input-group">
+                                        <input type="hidden"  formControlName="branchId" name="branchId" />
+                                        <select class="form-control form-control-line" formControlName="companyName" >                                           
+                                            <option *ngFor="let cmp of cmpModel;" value="{{cmp.id}}">{{cmp.compayName}}</option>                                                                                                                   
+
+                                    </select>
+                                    </div>
+                                    <div *ngIf="isSuccess && form.companyName.errors" class="invalid-feedback">
+                                        <div *ngIf="form.companyName.errors.required">Company Name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-group required">
+                                <label class="control-label">Branch Name</label>
+                                <div class="input-group">                                   
+                                    <input type="text" class="form-control form-control-line" formControlName="branchName" >
+                                    <div *ngIf="isSuccess && form.branchName.errors" class="invalid-feedback">
+                                        <div *ngIf="form.branchName.errors.required">branchName is required</div>                                        
+                                    </div>
+                                </div>
+                            </div> 
+                             <div class="form-group required">
+                                <label class="control-label">Address</label>
+                                <div class="input-group">
+                                    
+                                    <input type="text" class="form-control form-control-line" formControlName="address" id="contactNo" [ngClass]="{ 'is-invalid': isSuccess && form.contactNo.errors }">
+                                    <div *ngIf="isSuccess && form.address.errors" class="invalid-feedback">
+                                        <div *ngIf="form.address.errors.required">Address is required</div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group required">
+                                <label class="control-label">City</label>
+                                <div class="input-group">                                                                      
+                                    <input type="text" class="form-control form-control-line" formControlName="city" id="noOfEmployee" [ngClass]="{ 'is-invalid': isSuccess && form.noOfEmployee.errors }">
+                                    <div *ngIf="isSuccess && form.city.errors" class="invalid-feedback">
+                                        <div *ngIf="form.city.errors.required">City is required</div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group required">
+                                <label class="control-label">State</label>
+                                <div class="input-group">                                   
+                                    <input type="text" class="form-control form-control-line" formControlName="state" id="headquarters" [ngClass]="{ 'is-invalid': isSuccess && form.headquarters.errors }">
+                                    <div *ngIf="isSuccess && form.state.errors" class="invalid-feedback">
+                                        <div *ngIf="form.state.errors.required">State is required</div>                                        
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="form-group required">
+                                <label class="control-label">Country</label>
+                                <div class="input-group">                                                                      
+                                    <input type="text" class="form-control form-control-line" formControlName="country" id="country" [ngClass]="{ 'is-invalid': isSuccess && form.headquarters.errors }">
+                                    <div *ngIf="isSuccess && form.country.errors" class="invalid-feedback">
+                                        <div *ngIf="form.country.errors.required">Country is required</div>                                        
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="form-group required">
+                                <label class="control-label">Telephone</label>
+                                <div class="input-group">                                                                      
+                                    <input type="text" class="form-control form-control-line" formControlName="telephone" id="telephone" [ngClass]="{ 'is-invalid': isSuccess && form.headquarters.errors }">
+                                    <div *ngIf="isSuccess && form.telephone.errors" class="invalid-feedback">
+                                        <div *ngIf="form.telephone.errors.required">telephone is required</div>                                        
+                                    </div>
+                                </div>
+                            </div> 
+
+                           <br>
+                           
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-success" (click)='back()'>
+                                    <span class="ti ti-back-left"></span> Back
+                                </button>&nbsp;
+                                <button type="button" class="btn btn-primary" (click)='saveBranch()' [disabled]=saveProcess>
+                                    <span *ngIf=!updateFlag class="ti ti-save">Save</span>  <span *ngIf=updateFlag class="ti ti-save">Update</span> 
+                                </button>&nbsp;                                
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+     </div>
+</div>

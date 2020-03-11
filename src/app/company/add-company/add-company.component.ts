@@ -39,7 +39,7 @@ export class AddCompanyComponent implements OnInit {
       this.cmpId = localStorage.getItem("editCompanyId");
       var cmpobj = JSON.parse(localStorage.getItem("companyList"));
       var port = cmpobj.filter(x=>x.id ==this.cmpId);
-      this.form['companyId'].setValue(port[0].id);
+      this.form['companyId'].setValue(port[0].id);      
       this.form['companyName'].setValue(port[0].compayName);
       this.form['website'].setValue(port[0].website);
       this.form['contactNo'].setValue(port[0].contactNo);
