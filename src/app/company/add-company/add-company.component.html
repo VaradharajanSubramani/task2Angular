@@ -1,0 +1,97 @@
+<div class="content" id="createPortlet">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <div class="page-header-title">
+                    <h4 class="pull-left page-title" *ngIf="(!updateFlag)"> Create New Portlets</h4>
+                    <h4 class="pull-left page-title" *ngIf="(updateFlag)">Update Portlets</h4>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-body d-flex justify-content-center">
+                    <div class="col-lg-9 col-xlg-9 col-md-9">
+
+
+                        <form [formGroup]="myForm" class="form-horizontal" >
+                           
+                           <div class="row">
+
+                            <div class="col-sm-4">
+                                <div class="form-group required">
+                                    <label for="example-email" class="control-label">Company Name</label>
+                                    <div class="input-group">
+                                        <input type="hidden"  formControlName="companyId" name="companyId" />
+                                        <input type="text" class="form-control form-control-line" formControlName="companyName" >
+                                    </div>
+                                    <div *ngIf="isSuccess && form.companyName.errors" class="invalid-feedback">
+                                        <div *ngIf="form.companyName.errors.required">Company Name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-group required">
+                                <label class="control-label">Website</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-account" aria-hidden="true"></i></span>                                    
+                                    <input type="text" class="form-control form-control-line" formControlName="website" >
+                                    <div *ngIf="isSuccess && form.website.errors" class="invalid-feedback">
+                                        <div *ngIf="form.website.errors.required">Website is required</div>                                        
+                                    </div>
+                                </div>
+                            </div> 
+                             <div class="form-group required">
+                                <label class="control-label">Contact No</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-account" aria-hidden="true"></i></span>                                    
+                                    <input type="text" class="form-control form-control-line" formControlName="contactNo" id="contactNo" [ngClass]="{ 'is-invalid': isSuccess && form.contactNo.errors }">
+                                    <div *ngIf="isSuccess && form.contactNo.errors" class="invalid-feedback">
+                                        <div *ngIf="form.contactNo.errors.required">Contact No is required</div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group required">
+                                <label class="control-label">Employees Count</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-account" aria-hidden="true"></i></span>                                    
+                                    <input type="text" class="form-control form-control-line" formControlName="noOfEmployee" id="noOfEmployee" [ngClass]="{ 'is-invalid': isSuccess && form.noOfEmployee.errors }">
+                                    <div *ngIf="isSuccess && form.noOfEmployee.errors" class="invalid-feedback">
+                                        <div *ngIf="form.noOfEmployee.errors.required">noOfEmployee is required</div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group required">
+                                <label class="control-label">Head Quarters</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-account" aria-hidden="true"></i></span>                                    
+                                    <input type="text" class="form-control form-control-line" formControlName="headquarters" id="headquarters" [ngClass]="{ 'is-invalid': isSuccess && form.headquarters.errors }">
+                                    <div *ngIf="isSuccess && form.headquarters.errors" class="invalid-feedback">
+                                        <div *ngIf="form.headquarters.errors.required">noOfEmployee is required</div>                                        
+                                    </div>
+                                </div>
+                            </div> 
+
+                           <br>
+                           
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-success" (click)='back()'>
+                                    <span class="ti ti-back-left"></span> Back
+                                </button>&nbsp;
+                                <button type="button" class="btn btn-primary" (click)='saveCompany()' [disabled]=saveProcess>
+                                    <span *ngIf=!updateFlag class="ti ti-save">Save</span>  <span *ngIf=updateFlag class="ti ti-save">Update</span> 
+                                </button>&nbsp;                                
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
